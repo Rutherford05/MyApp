@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,117 +8,103 @@
     android:padding="30dp"
     android:background="#bdc3c7"
     tools:context=".MainActivity">
-
-    <android.support.design.widget.TextInputLayout
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:textColorHint="@color/colorPrimary">
+        android:hint="Nom"
+        android:textColorHint="@color/macouleur"
+        app:hintTextAppearance="@color/macouleur"
+        app:boxStrokeColor="@color/macouleur"
+        android:layout_marginTop="50dp"
+        app:boxBackgroundColor="@color/fonds"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <android.support.design.widget.TextInputEditText
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:textSize="20sp"
-            android:textColorHint="@color/colorPrimary"
-            android:hint="Nom" />
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
+            android:textAppearance="@color/macouleur"
+            android:textColorHint="@color/macouleur"
+            android:textSize="16dp"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:focusable="true"
-        android:layout_marginTop="5dp"
-        android:focusableInTouchMode="true"
-        android:textColorHint="@color/colorPrimary">
+        android:hint="Prenom"
+        android:layout_marginTop="125dp"
+        app:hintTextAppearance="@color/macouleur"
+        app:boxStrokeColor="@color/macouleur"
+        android:textColorHint="@color/macouleur"
+        app:boxBackgroundColor="@color/fonds"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <android.support.design.widget.TextInputEditText
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:textSize="20sp"
-            android:textColorHint="@color/colorPrimary"
-            android:hint="Prenom" />
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
+            android:textColorHint="@color/macouleur"
+            android:textAppearance="@color/macouleur"
+            android:textSize="16dp"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:focusable="true"
-        android:layout_marginTop="5dp"
-        android:focusableInTouchMode="true"
-        android:textColorHint="@color/colorPrimary">
+        android:hint="Nom d'utilisateur"
+        android:layout_marginTop="200dp"
+        android:textColorHint="@color/macouleur"
+        app:hintTextAppearance="@color/macouleur"
+        app:boxStrokeColor="@color/macouleur"
+        app:boxBackgroundColor="@color/fonds"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <android.support.design.widget.TextInputEditText
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:textSize="20sp"
-            android:textColorHint="@color/colorPrimary"
-            android:hint="Nom d'utilisateur" />
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
+            android:textColorHint="@color/macouleur"
+            android:textAppearance="@color/macouleur"
+            android:textSize="16dp"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:focusable="true"
-        android:layout_marginTop="5dp"
-        android:focusableInTouchMode="true"
-        android:textColorHint="@color/colorPrimary">
+        android:hint="Mot de passe"
+        android:layout_marginTop="275dp"
+        android:textColorHint="@color/macouleur"
+        app:hintTextAppearance="@color/macouleur"
+        app:boxStrokeColor="@color/macouleur"
+        app:boxBackgroundColor="@color/fonds"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <android.support.design.widget.TextInputEditText
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            android:textSize="20sp"
-            android:textColorHint="@color/colorPrimary"
-            android:hint="Email" />
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
+            android:textColorHint="@color/macouleur"
+            android:textAppearance="@color/macouleur"
+            android:textSize="16dp"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:focusable="true"
-        android:layout_marginTop="5dp"
-        android:focusableInTouchMode="true"
-        android:textColorHint="@color/colorPrimary">
+        android:hint="Confirmer le mot de passe"
+        android:textColorHint="@color/macouleur"
+        app:hintTextAppearance="@color/macouleur"
+        app:boxStrokeColor="@color/macouleur"
+        android:layout_marginTop="350dp"
+        app:boxBackgroundColor="@color/fonds"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <android.support.design.widget.TextInputEditText
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:textSize="20sp"
-            android:textColorHint="@color/colorPrimary"
-            android:hint="Mot de passe" />
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:layout_marginTop="5dp"
-        android:focusableInTouchMode="true"
-        android:textColorHint="@color/colorPrimary">
-
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:textSize="20sp"
-            android:textColor="@color/colorPrimary"
-            android:hint="Confirmer mot de passe" />
-    </android.support.design.widget.TextInputLayout>
-
+            android:textAppearance="@color/macouleur"
+            android:textColorHint="@color/macouleur"
+            android:textSize="16dp"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="425dp"
         android:background="@drawable/naomie"
         android:textSize="15dp"
         android:text="S'inscrire" />
-</LinearLayout>
+</RelativeLayout>
