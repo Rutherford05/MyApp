@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp"
+    android:background="#bdc3c7"
+    tools:context=".Connexion">
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nom d'utilisateur"
+        android:textColorHint="@color/macouleur"
+        app:hintTextAppearance="@color/macouleur"
+        app:boxStrokeColor="@color/macouleur"
+        android:layout_marginTop="125dp"
+        app:boxBackgroundColor="@color/fonds"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:textAppearance="@color/macouleur"
+            android:textColorHint="@color/macouleur"
+            android:textSize="16dp"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mot de passe"
+        android:layout_marginTop="50dp"
+        app:hintTextAppearance="@color/macouleur"
+        app:boxStrokeColor="@color/macouleur"
+        android:textColorHint="@color/macouleur"
+        app:boxBackgroundColor="@color/fonds"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:textColorHint="@color/macouleur"
+            android:textAppearance="@color/macouleur"
+            android:textSize="16dp"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="textEnd"
+        android:text="Mot de passe oublié"
+        android:gravity="end" />
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/beracia"
+        android:textColor="#FFFF"
+        android:text="se connecter" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="205dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="10dp"
+        android:text="Avez-vous un compte?" />
+
+    <TextView
+        android:id="@+id/créer"
+        android:layout_width="165dp"
+        android:layout_height="29dp"
+        android:layout_marginLeft="145dp"
+        android:layout_marginTop="-33dp"
+        android:textColor="#1abc9c"
+        android:onClick="creer"
+        android:text="créer un compte" />
+
+
+</LinearLayout>
