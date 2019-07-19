@@ -11,7 +11,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nom d'utilisateur"
+        android:hint="Adresse email"
         android:textColorHint="@color/macouleur"
         app:hintTextAppearance="@color/macouleur"
         app:boxStrokeColor="@color/macouleur"
@@ -20,10 +20,12 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/valid_email"
             android:layout_width="match_parent"
             android:textAppearance="@color/macouleur"
             android:textColorHint="@color/macouleur"
             android:textSize="16dp"
+            android:inputType="textEmailAddress"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -38,10 +40,12 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/valid_password"
             android:layout_width="match_parent"
             android:textColorHint="@color/macouleur"
             android:textAppearance="@color/macouleur"
             android:textSize="16dp"
+            android:inputType="textPassword"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
     <TextView
