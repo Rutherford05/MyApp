@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -36,9 +37,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         auth=FirebaseAuth.getInstance();
-        if(auth.getCurrentUser() !=null){
-
-        }
         mNom=(TextInputEditText) findViewById(R.id.Nom);
         mPrenom=(TextInputEditText) findViewById(R.id.Prenom);
         mEmail=(TextInputEditText) findViewById(R.id.email);
@@ -80,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
                         if(task.isSuccessful()){
                             //display some message here
+                            startActivity(new Intent(getApplicationContext(),Connexion.class));
                             Toast.makeText(MainActivity.this,"Successfully registered",Toast.LENGTH_LONG).show();
                         }else{
                             //display some message here
@@ -88,9 +87,6 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
-
-
-
             }
         });
 

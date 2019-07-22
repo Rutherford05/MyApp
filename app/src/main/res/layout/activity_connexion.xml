@@ -31,7 +31,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Mot de passe"
+        android:hint="**********"
         android:layout_marginTop="50dp"
         app:hintTextAppearance="@color/macouleur"
         app:boxStrokeColor="@color/macouleur"
@@ -80,13 +80,11 @@
         android:textColor="#1abc9c"
         android:onClick="creer"
         android:text="créer un compte" />
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="center|bottom"
-        android:layout_marginBottom="20dp"
-        android:visibility="gone" />
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible" />
 
 
 </LinearLayout>
