@@ -16,6 +16,12 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -28,6 +34,7 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
@@ -39,6 +46,8 @@ public class Connexion extends AppCompatActivity {
     String mail,mot_de_passe;
     GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth firebaseAuth;
+    private CallbackManager mCallbackManager;
+    private static final String TAG="FACELOG";
     SignInButton signInButton;
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
@@ -46,6 +55,30 @@ public class Connexion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connexion);
+        // Initialize Facebook Login button
+        mCallbackManager = CallbackManager.Factory.create();
+        LoginButton loginButton =(LoginButton) findViewById(R.id.login_button);
+        loginButton.setPermissions("email", "public_profile");
+        loginButton.registerCallback(mCallbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Log.d(TAG, "facebook:onSuccess:" + loginResult);
+                handleFacebookAccessToken(loginResult.getAccessToken());
+            }
+
+            @Override
+            public void onCancel() {
+                Log.d(TAG, "facebook:onCancel");
+                // ...
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                Log.d(TAG, "facebook:onError", error);
+                // ...
+            }
+        });
+
         firebaseAuth=FirebaseAuth.getInstance();
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -84,7 +117,6 @@ public class Connexion extends AppCompatActivity {
                      @Override
                      public void onComplete(@NonNull Task<AuthResult> task) {
                          if(task.isSuccessful()){
-                             startActivity(new Intent(getApplicationContext(),Accueil.class));
                              Toast.makeText(Connexion.this,"successfuly login",Toast.LENGTH_LONG).show();
                          }
                          else{
@@ -103,6 +135,7 @@ public class Connexion extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        mCallbackManager.onActivityResult(requestCode, resultCode, data);
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == 101) {
@@ -116,6 +149,48 @@ public class Connexion extends AppCompatActivity {
             }
         }
     }
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+        if (currentUser!=null){
+            updateUI();
+        }
+
+    }
+
+    private void updateUI() {
+        Toast.makeText(Connexion.this,"you're logged in",Toast.LENGTH_LONG).show();
+        Intent inte= new Intent(Connexion.this,Accueil.class);
+        startActivity(inte);
+        finish();
+    }
+    private void handleFacebookAccessToken(AccessToken token) {
+        Log.d(TAG, "handleFacebookAccessToken:" + token);
+
+        AuthCredential credential = FacebookAuthProvider.getCredential(token.getToken());
+        firebaseAuth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithCredential:success");
+                            FirebaseUser user = firebaseAuth.getCurrentUser();
+                            updateUI();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithCredential:failure", task.getException());
+                            Toast.makeText(Connexion.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                            updateUI();
+                        }
+
+                        // ...
+                    }
+                });
+    }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
 
@@ -127,7 +202,7 @@ public class Connexion extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
                                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                                Intent i= new Intent(getApplicationContext(),Utilisateurs.class);
+                                Intent i= new Intent(Connexion.this,Utilisateurs.class);
                                 startActivity(i);
                                 finish();
                                 Toast.makeText(getApplicationContext(),"User logged is successfully",Toast.LENGTH_LONG).show();
@@ -136,8 +211,6 @@ public class Connexion extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),"error",Toast.LENGTH_LONG).show();
 
                             }
-
-                            // ...
                         }
                     });
     }

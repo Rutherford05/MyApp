@@ -25,7 +25,7 @@ public class Utilisateurs extends AppCompatActivity {
         utilisateur.setText(user.getEmail());
     }
     public void logout(View v){
-        firebaseAuth.signOut();
+        FirebaseAuth.getInstance().signOut();
         finish();
         Intent i=new Intent(this,Connexion.class);
         startActivity(i);
