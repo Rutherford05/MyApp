@@ -27,6 +27,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class MainActivity extends AppCompatActivity {
     private TextInputEditText mNom;
     private TextInputEditText mPrenom;
@@ -61,10 +64,10 @@ public class MainActivity extends AppCompatActivity {
                 mE=mEmail.getText().toString();
                 mM=mMp.getText().toString();
                 mC=mConfirm.getText().toString();
-                if(!mEmail.getText().toString().trim().matches(emailPattern)){
-                    Toast.makeText(MainActivity.this,"Entrer une adresse valide",Toast.LENGTH_LONG).show();
-                    return;
-                }
+                //if(!mEmail.getText().toString().trim().matches(emailPattern)){
+                    //Toast.makeText(MainActivity.this,"Entrer une adresse valide",Toast.LENGTH_LONG).show();
+                    //return;
+                //}
                   if(TextUtils.isEmpty(mN)){
                     Toast.makeText(getApplicationContext(),"Entrer votre Nom",Toast.LENGTH_LONG).show();
                     return;

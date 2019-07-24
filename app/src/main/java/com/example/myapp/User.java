@@ -3,8 +3,8 @@ package com.example.myapp;
 public class User {
     private String Nom;
     private String Prenom;
-    private String Email;
     private String Mot_de_passe;
+    private String email;
     public User(){
 
     }
@@ -25,13 +25,6 @@ public class User {
         Prenom = prenom;
     }
 
-    public String getEmail(String Email) {
-        return Email;
-    }
-
-    public void setEmail(String Email) {
-        Email = Email;
-    }
 
     public String getMot_de_passe() {
         return Mot_de_passe;
@@ -39,5 +32,13 @@ public class User {
 
     public void setMot_de_passe(String mot_de_passe) {
         Mot_de_passe = mot_de_passe;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
