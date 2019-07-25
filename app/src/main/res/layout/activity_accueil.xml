@@ -10,7 +10,7 @@
         android:id="@+id/nouvel"
         android:layout_width="135dp"
         android:layout_height="135dp"
-        android:text="Rechercher"
+        android:text="Nouvel Article"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="25dp"
         android:drawableTop="@drawable/ic_add_circle_ruther"

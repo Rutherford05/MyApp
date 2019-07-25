@@ -93,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
                   user.setEmail(mEmail.getText().toString().trim());
                   user.setMot_de_passe(mMp.getText().toString().trim());
                   ref.push().setValue(user);
-                  Toast.makeText(MainActivity.this,"Data insert sucessfully",Toast.LENGTH_LONG).show();
                 auth.createUserWithEmailAndPassword(mE,mM).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -101,10 +100,10 @@ public class MainActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             //display some message here
                             startActivity(new Intent(getApplicationContext(),Connexion.class));
-                            Toast.makeText(MainActivity.this,"Successfully registered",Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this,"Inscription Reussie",Toast.LENGTH_LONG).show();
                         }else{
                             //display some message here
-                            Toast.makeText(MainActivity.this,"Registration Error",Toast.LENGTH_LONG).show();
+                            Toast.makeText(MainActivity.this,"Erreur",Toast.LENGTH_LONG).show();
                         }
 
                     }

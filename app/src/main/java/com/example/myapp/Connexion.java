@@ -117,10 +117,11 @@ public class Connexion extends AppCompatActivity {
                      @Override
                      public void onComplete(@NonNull Task<AuthResult> task) {
                          if(task.isSuccessful()){
-                             Toast.makeText(Connexion.this,"successfuly login",Toast.LENGTH_LONG).show();
+                             Intent acc= new Intent(Connexion.this,Accueil.class);
+                             startActivity(acc);
                          }
                          else{
-                             Toast.makeText(Connexion.this,"Login error",Toast.LENGTH_LONG).show();
+                             Toast.makeText(Connexion.this,"Connexion échouée",Toast.LENGTH_LONG).show();
                          }
                      }
                  });
@@ -155,17 +156,17 @@ public class Connexion extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = firebaseAuth.getCurrentUser();
         if (currentUser!=null){
-            updateUI();
+            //updateUI();
         }
 
     }
 
-    private void updateUI() {
+    /*private void updateUI() {
         Toast.makeText(Connexion.this,"you're logged in",Toast.LENGTH_LONG).show();
         Intent inte= new Intent(Connexion.this,Accueil.class);
         startActivity(inte);
         finish();
-    }
+    }*/
     private void handleFacebookAccessToken(AccessToken token) {
         Log.d(TAG, "handleFacebookAccessToken:" + token);
 
@@ -178,13 +179,13 @@ public class Connexion extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = firebaseAuth.getCurrentUser();
-                            updateUI();
+                            //updateUI();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
                             Toast.makeText(Connexion.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-                            updateUI();
+                            //updateUI();
                         }
 
                         // ...
