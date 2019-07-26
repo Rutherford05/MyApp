@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:appComponentFactory">
-        <activity android:name=".Ajouter"></activity>
+        <activity android:name=".Liste"></activity>
+        <activity android:name=".Ajouter" />
         <activity android:name=".Utilisateurs" />
         <activity android:name=".Accueil" />
         <activity android:name=".MainActivity" />

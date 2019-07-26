@@ -2,6 +2,7 @@ package com.example.myapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +21,7 @@ public class Ajouter extends AppCompatActivity {
     private TextInputEditText CodeA;
     private TextInputEditText Désignat;
     private TextInputEditText Unité;
-    private TextInputEditText Date;
+    private TextInputEditText Prix;
     private Button Add;
     private FirebaseAuth auth;
     Article article;
@@ -33,7 +34,7 @@ public class Ajouter extends AppCompatActivity {
         CodeA=(TextInputEditText) findViewById(R.id.code);
         Désignat=(TextInputEditText) findViewById(R.id.design);
         Unité=(TextInputEditText) findViewById(R.id.unit);
-        Date=(TextInputEditText) findViewById(R.id.dat);
+        Prix=(TextInputEditText) findViewById(R.id.dat);
         Add=(Button) findViewById(R.id.btn_ajout);
         article= new Article();
         ref= FirebaseDatabase.getInstance().getReference().child("Article");
@@ -42,14 +43,17 @@ public class Ajouter extends AppCompatActivity {
             public void onClick(View v) {
                 String code=CodeA.getText().toString().trim();
                 String Des=Désignat.getText().toString().trim();
-                String dt=Date.getText().toString().trim();
+                Float px=Float.parseFloat(Prix.getText().toString().trim());
                 int un=Integer.parseInt(Unité.getText().toString().trim());
                 article.setCodearticle(CodeA.getText().toString().trim());
                 article.setDésignation(Désignat.getText().toString().trim());
-                article.setDate(Date.getText().toString().trim());
+                article.setPrix(px);
                 article.setUnité(un);
                 ref.push().setValue(article);
                 Toast.makeText(getApplicationContext(),"data insert successfully",Toast.LENGTH_LONG).show();
+                Intent list=new Intent(Ajouter.this,Liste.class);
+                startActivity(list);
+
             }
         });
     }

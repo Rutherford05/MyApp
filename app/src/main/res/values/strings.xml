@@ -2,5 +2,9 @@
     <string name="app_name">MyApp</string>
     <string name="facebook_app_id">591471001261022</string>
     <string name="fb_login_protocol_scheme">fb591471001261022</string>
+    <string name="name">codearticle</string>
+    <string name="prix">prix</string>
+    <string name="désignation">désignation</string>
+    <string name="unité">unité</string>
 
 </resources>

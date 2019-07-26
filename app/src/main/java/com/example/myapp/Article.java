@@ -1,12 +1,12 @@
 package com.example.myapp;
 
-import java.util.Date;
+
 
 public class Article {
     private String codearticle;
     private String désignation;
     private Integer unité;
-    private String date;
+    private Float prix;
     public Article(){
 
     }
@@ -35,11 +35,11 @@ public class Article {
         this.unité = unité;
     }
 
-    public String getDate() {
-        return date;
+    public Float getPrix() {
+        return prix;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setPrix(Float prix) {
+        this.prix = prix;
     }
 }
