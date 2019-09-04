@@ -3,10 +3,10 @@ package com.example.myapp;
 public class Article {
     private String codearticle;
     private String désignation;
-    private String unité;
-    private String prix;
+    private int unité;
+    private int prix;
 
-    public Article(String codearticle, String désignation, String unité, String prix) {
+    public Article(String codearticle, String désignation, int unité, int prix) {
         this.codearticle = codearticle;
         this.désignation = désignation;
         this.unité = unité;
@@ -33,19 +33,19 @@ public class Article {
         this.désignation = désignation;
     }
 
-    public String getUnité() {
+    public int getUnité() {
         return unité;
     }
 
-    public void setUnité(String unité) {
+    public void setUnité(int unité) {
         this.unité = unité;
     }
 
-    public String getPrix() {
+    public int getPrix() {
         return prix;
     }
 
-    public void setPrix(String prix) {
+    public void setPrix(int prix) {
         this.prix = prix;
     }
 }

@@ -40,18 +40,17 @@ public class Ajouter extends AppCompatActivity {
             public void onClick(View v) {
                 String code=CodeA.getText().toString().trim();
                 String Des=Désignat.getText().toString().trim();
-                String px=Prix.getText().toString().trim();
-                String un=Unité.getText().toString().trim();
-                //int px= (int) Float.parseFloat(Prix.getText().toString().trim());
-                //int un=Integer.parseInt(Unité.getText().toString().trim());
+
+                int px= (int) Float.parseFloat(Prix.getText().toString().trim());
+                int un=Integer.parseInt(Unité.getText().toString().trim());
                 article.setCodearticle(CodeA.getText().toString().trim());
                 article.setDésignation(Désignat.getText().toString().trim());
-                article.setPrix(Prix.getText().toString().trim());
-                article.setUnité(Unité.getText().toString().trim());
+                article.setPrix(px);
+                article.setUnité(un);
                 //article.setPrix(px);
                 //article.setUnité(un);
                 ref.push().setValue(article);
-                Toast.makeText(getApplicationContext(),"data insert successfully",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Article ajouté avec succès",Toast.LENGTH_LONG).show();
                 Intent list=new Intent(Ajouter.this, Accueil.class);
                 startActivity(list);
 

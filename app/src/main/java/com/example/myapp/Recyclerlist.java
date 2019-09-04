@@ -45,8 +45,12 @@ public class Recyclerlist extends AppCompatActivity {
                 for (DataSnapshot snapshot:dataSnapshot.getChildren()){
                     Article mesarticles=new Article();
                     mesarticles.setDésignation((snapshot.child("désignation").getValue().toString()));
-                    mesarticles.setPrix(snapshot.child("prix").getValue().toString());
-                    mesarticles.setUnité(snapshot.child("unité").getValue().toString());
+                    String prix=snapshot.child("prix").getValue().toString();
+                    String unite=snapshot.child("unité").getValue().toString();
+                    int prixInt=Integer.parseInt(prix) ;
+                    int uniteInt=Integer.parseInt(unite);
+                   mesarticles.setPrix(prixInt);
+                   mesarticles.setUnité(uniteInt);
                     articles.add(mesarticles);
                 }
                 recyclerAdapter=new RecyclerAdapter(context,articles);
