@@ -1,12 +1,18 @@
 package com.example.myapp;
 
-
-
 public class Article {
     private String codearticle;
     private String désignation;
-    private Integer unité;
-    private Float prix;
+    private String unité;
+    private String prix;
+
+    public Article(String codearticle, String désignation, String unité, String prix) {
+        this.codearticle = codearticle;
+        this.désignation = désignation;
+        this.unité = unité;
+        this.prix = prix;
+    }
+
     public Article(){
 
     }
@@ -27,19 +33,19 @@ public class Article {
         this.désignation = désignation;
     }
 
-    public Integer getUnité() {
+    public String getUnité() {
         return unité;
     }
 
-    public void setUnité(Integer unité) {
+    public void setUnité(String unité) {
         this.unité = unité;
     }
 
-    public Float getPrix() {
+    public String getPrix() {
         return prix;
     }
 
-    public void setPrix(Float prix) {
+    public void setPrix(String prix) {
         this.prix = prix;
     }
 }
