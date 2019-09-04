@@ -32,8 +32,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
          holder.des.setText(artlist.get(position).getDésignation());
-         holder.pr.setText( artlist.get(position).getPrix());
-         holder.un.setText(artlist.get(position).getUnité());
+         holder.pr.setText( "Prix Unitaire: " +artlist.get(position).getPrix()+"F");
+         holder.un.setText("unité: " +artlist.get(position).getUnité());
     }
 
     @Override
