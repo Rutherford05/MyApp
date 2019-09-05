@@ -50,7 +50,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             des=(TextView) itemView.findViewById(R.id.mondes);
             pr=(TextView) itemView.findViewById(R.id.un);
             un=(TextView) itemView.findViewById(R.id.monpr);
-
         }
     }
 }

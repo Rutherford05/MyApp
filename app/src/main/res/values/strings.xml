@@ -6,5 +6,6 @@
     <string name="Prix">prix:</string>
     <string name="Désignation">désignation:</string>
     <string name="Unité">unité:</string>
+    <string name="search">Rechercher un Article...</string>
 
 </resources>

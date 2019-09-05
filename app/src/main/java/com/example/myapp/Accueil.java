@@ -8,7 +8,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Accueil extends AppCompatActivity {
-    private Button nouvel,show;
+    private Button nouvel,show,search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +16,14 @@ public class Accueil extends AppCompatActivity {
         setContentView(R.layout.activity_accueil);
         nouvel=(Button) findViewById(R.id.nouvel);
         show=(Button) findViewById(R.id.liste);
+        search=(Button) findViewById( R.id.rechercher);
+        search.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent search= new Intent(Accueil.this,Monsearch.class);
+                startActivity(search);
+            }
+        } );
         show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,5 +38,6 @@ public class Accueil extends AppCompatActivity {
                 startActivity(nouvel);
             }
         });
+
     }
 }
