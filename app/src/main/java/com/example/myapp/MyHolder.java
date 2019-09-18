@@ -20,5 +20,4 @@ public class MyHolder extends RecyclerView.ViewHolder {
         this.uni=itemView.findViewById(R.id.monpr);
         this.pr=itemView.findViewById(R.id.un);
     }
-
 }
